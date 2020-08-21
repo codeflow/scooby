@@ -2,8 +2,11 @@
 package br.com.codeflow.scooby.business.entity;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.Collection;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +14,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author scooby
+ * @author rafaelsantos
  */
 @Entity
 @Table(name = "contact")
@@ -41,16 +46,14 @@ public class Contact implements Serializable {
     
     @Column(name = "mail")
     private String mail;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contact")
+    private Collection<Customer> customerCollection;
 
     public Contact() {}
 
     public Contact(Long id) {
         this.id = id;
-    }
-    
-    public Contact(Long phone, String mail) {
-        this.phone = phone;
-        this.mail = mail;
     }
 
     public Long getId() {
@@ -77,6 +80,15 @@ public class Contact implements Serializable {
         this.mail = mail;
     }
 
+    @XmlTransient
+    public Collection<Customer> getCustomerCollection() {
+        return customerCollection;
+    }
+
+    public void setCustomerCollection(Collection<Customer> customerCollection) {
+        this.customerCollection = customerCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -98,5 +110,5 @@ public class Contact implements Serializable {
     @Override
     public String toString() {
         return "br.com.codeflow.scooby.business.entity.Contact[ id=" + id + " ]";
-    } 
+    }
 }

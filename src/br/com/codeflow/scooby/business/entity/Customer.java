@@ -2,13 +2,10 @@
 package br.com.codeflow.scooby.business.entity;
 
 import java.io.Serializable;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,9 +15,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
- * @author scooby
+ * @author rafaelsantos
  */
 @Entity
 @Table(name = "customer")
@@ -43,11 +42,11 @@ public class Customer implements Serializable {
     private String name;
     
     @JoinColumn(name = "id_address", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Address address;
     
     @JoinColumn(name = "id_contact", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Contact contact;
 
     public Customer() {}
@@ -103,14 +102,14 @@ public class Customer implements Serializable {
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
+        
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof Customer))
             return false;
-        }
         
         Customer other = (Customer) object;
         

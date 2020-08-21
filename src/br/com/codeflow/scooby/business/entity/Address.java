@@ -2,8 +2,11 @@
 package br.com.codeflow.scooby.business.entity;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.Collection;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +14,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author scooby
+ * @author rafaelsantos
  */
 @Entity
 @Table(name = "address")
@@ -31,7 +36,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -46,17 +50,14 @@ public class Address implements Serializable {
     
     @Column(name = "number")
     private Long number;
-   
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "address")
+    private Collection<Customer> customerCollection;
+
     public Address() {}
 
     public Address(Long id) {
         this.id = id;
-    }
-    
-    public Address(String street, String neighbourhood, Long number) {
-        this.street = street;
-        this.neighbourhood = neighbourhood;
-        this.number = number;
     }
 
     public Long getId() {
@@ -89,6 +90,15 @@ public class Address implements Serializable {
 
     public void setNumber(Long number) {
         this.number = number;
+    }
+
+    @XmlTransient
+    public Collection<Customer> getCustomerCollection() {
+        return customerCollection;
+    }
+
+    public void setCustomerCollection(Collection<Customer> customerCollection) {
+        this.customerCollection = customerCollection;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class TableRenderer implements TableCellRenderer {
             Color foreground, background;
             
             foreground = Color.WHITE;
-            background = Color.GRAY;
+            background = Color.LIGHT_GRAY;
             
             renderer.setForeground(foreground);
             renderer.setBackground(background);
@@ -45,7 +45,7 @@ public class TableRenderer implements TableCellRenderer {
                 Color foreground, background;
                 
                 foreground = Color.BLACK;
-                background = Color.LIGHT_GRAY;
+                background = new Color(255, 255, 230);
                 
                 renderer.setForeground(foreground);
                 renderer.setBackground(background);

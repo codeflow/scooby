@@ -19,6 +19,7 @@ import java.text.ParseException;
 import javax.swing.BorderFactory;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.text.MaskFormatter;
 
@@ -103,103 +104,73 @@ public class FrmCustomer extends JInternalFrame {
 
         panelForm.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), bundle.getString("FrmCustomer.panelForm.add.title"))); // NOI18N
         panelForm.setPreferredSize(new java.awt.Dimension(570, 300));
-        panelForm.setLayout(null);
 
         lblCustomerName.setText(bundle.getString("FrmCustomer.lblCustomerName.text")); // NOI18N
-        panelForm.add(lblCustomerName);
-        lblCustomerName.setBounds(18, 27, 31, 14);
 
         txtCustomerName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCustomerNameKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCustomerNameKeyReleased(evt);
             }
         });
-        panelForm.add(txtCustomerName);
-        txtCustomerName.setBounds(18, 47, 422, 27);
 
         lblCustomerNameError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/codeflow/scooby/resources/img/error.png"))); // NOI18N
         lblCustomerNameError.setToolTipText(bundle.getString("FrmCustomer.lblCustomerNameError.tip")); // NOI18N
-        panelForm.add(lblCustomerNameError);
-        lblCustomerNameError.setBounds(452, 47, 24, 27);
-        lblCustomerNameError.setVisible(false);
 
         lblCustomerStreet.setText(bundle.getString("FrmCustomer.lblCustomerAddressStreet.text")); // NOI18N
-        panelForm.add(lblCustomerStreet);
-        lblCustomerStreet.setBounds(18, 86, 20, 14);
 
         txtCustomerAddressStreet.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCustomerAddressStreetKeyReleased(evt);
             }
         });
-        panelForm.add(txtCustomerAddressStreet);
-        txtCustomerAddressStreet.setBounds(18, 106, 422, 27);
 
         lblCustomerAddressNumber.setText(bundle.getString("FrmCustomer.lblCustomerAddressNumber.text")); // NOI18N
-        panelForm.add(lblCustomerAddressNumber);
-        lblCustomerAddressNumber.setBounds(18, 139, 43, 14);
 
         txtCustomerAddressNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCustomerAddressNumberKeyReleased(evt);
             }
         });
-        panelForm.add(txtCustomerAddressNumber);
-        txtCustomerAddressNumber.setBounds(18, 159, 110, 27);
 
         lblCustomerNeighbourhood.setText(bundle.getString("FrmCustomer.lblCustomerNeighborhood.text")); // NOI18N
-        panelForm.add(lblCustomerNeighbourhood);
-        lblCustomerNeighbourhood.setBounds(170, 140, 32, 14);
 
         txtCustomerNeighbourhood.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCustomerNeighbourhoodKeyReleased(evt);
             }
         });
-        panelForm.add(txtCustomerNeighbourhood);
-        txtCustomerNeighbourhood.setBounds(170, 159, 270, 27);
 
         lblCustomerPhone.setText(bundle.getString("FrmCustomer.lblCustomerPhone.text")); // NOI18N
-        panelForm.add(lblCustomerPhone);
-        lblCustomerPhone.setBounds(18, 190, 100, 14);
 
         txtCustomerPhone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCustomerPhoneKeyReleased(evt);
             }
         });
-        panelForm.add(txtCustomerPhone);
-        txtCustomerPhone.setBounds(18, 210, 110, 27);
 
         lblCustomerPhoneError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/codeflow/scooby/resources/img/error.png"))); // NOI18N
         lblCustomerPhoneError.setToolTipText(bundle.getString("FrmCustomer.lblCustomerPhoneError.tip")); // NOI18N
-        panelForm.add(lblCustomerPhoneError);
-        lblCustomerPhoneError.setBounds(140, 210, 16, 27);
-        lblCustomerPhoneError.setVisible(false);
 
         lblCustomerMail.setText(bundle.getString("FrmCustomer.lblCustomerMail.text")); // NOI18N
-        panelForm.add(lblCustomerMail);
-        lblCustomerMail.setBounds(170, 190, 34, 14);
 
         txtCustomerMail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCustomerMailKeyReleased(evt);
             }
         });
-        panelForm.add(txtCustomerMail);
-        txtCustomerMail.setBounds(170, 210, 270, 27);
 
-        btnCustomerSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/codeflow/scooby/resources/img/ok.png"))); // NOI18N
+        btnCustomerSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/codeflow/scooby/resources/img/customizer.png"))); // NOI18N
         btnCustomerSave.setText(bundle.getString("FrmCustomer.btnSave.add.text")); // NOI18N
         btnCustomerSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomerSaveActionPerformed(evt);
             }
         });
-        panelForm.add(btnCustomerSave);
-        btnCustomerSave.setBounds(140, 260, 80, 24);
 
-        btnCustomerDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/codeflow/scooby/resources/img/delete.png"))); // NOI18N
+        btnCustomerDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/codeflow/scooby/resources/img/remove.png"))); // NOI18N
         btnCustomerDelete.setText(bundle.getString("FrmCustomer.btnDelete.delete.text")); // NOI18N
         btnCustomerDelete.setEnabled(false);
         btnCustomerDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -207,8 +178,92 @@ public class FrmCustomer extends JInternalFrame {
                 btnCustomerDeleteActionPerformed(evt);
             }
         });
-        panelForm.add(btnCustomerDelete);
-        btnCustomerDelete.setBounds(240, 260, 90, 24);
+
+        javax.swing.GroupLayout panelFormLayout = new javax.swing.GroupLayout(panelForm);
+        panelForm.setLayout(panelFormLayout);
+        panelFormLayout.setHorizontalGroup(
+            panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFormLayout.createSequentialGroup()
+                .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFormLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCustomerNeighbourhood)
+                            .addComponent(txtCustomerNeighbourhood, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelFormLayout.createSequentialGroup()
+                                .addComponent(lblCustomerPhone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCustomerPhoneError)))
+                        .addGap(28, 28, 28)
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelFormLayout.createSequentialGroup()
+                                .addComponent(lblCustomerMail)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCustomerMail)))
+                    .addGroup(panelFormLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelFormLayout.createSequentialGroup()
+                                .addComponent(lblCustomerName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCustomerNameError)))
+                        .addGap(30, 30, 30)
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCustomerStreet)
+                            .addComponent(txtCustomerAddressStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCustomerAddressNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCustomerAddressNumber)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFormLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCustomerSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCustomerDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelFormLayout.setVerticalGroup(
+            panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCustomerName)
+                        .addComponent(lblCustomerStreet)
+                        .addComponent(lblCustomerAddressNumber))
+                    .addComponent(lblCustomerNameError))
+                .addGap(8, 8, 8)
+                .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelFormLayout.createSequentialGroup()
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCustomerAddressStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCustomerAddressNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblCustomerNeighbourhood)
+                                .addComponent(lblCustomerPhone))
+                            .addComponent(lblCustomerMail)))
+                    .addComponent(lblCustomerPhoneError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCustomerNeighbourhood, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCustomerMail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCustomerDelete)
+                    .addComponent(btnCustomerSave))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lblCustomerNameError.setVisible(false);
+        lblCustomerPhoneError.setVisible(false);
 
         panelList.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), bundle.getString("FrmCustomer.panelList.title"))); // NOI18N
 
@@ -241,16 +296,16 @@ public class FrmCustomer extends JInternalFrame {
         panelList.setLayout(panelListLayout);
         panelListLayout.setHorizontalGroup(
             panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scrollPaneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneCustomer)
                 .addContainerGap())
         );
         panelListLayout.setVerticalGroup(
             panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addComponent(scrollPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -259,17 +314,19 @@ public class FrmCustomer extends JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelForm, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelForm, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelForm, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -360,6 +417,9 @@ public class FrmCustomer extends JInternalFrame {
     }//GEN-LAST:event_txtCustomerMailKeyReleased
 
     private void tableCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCustomerMouseClicked
+        removeErrorValidations(txtCustomerName);
+        removeErrorValidations(txtCustomerPhone);
+        
         int column = tableCustomer.getSelectedColumn();
         int row = tableCustomer.getSelectedRow();
         
@@ -371,12 +431,13 @@ public class FrmCustomer extends JInternalFrame {
     }//GEN-LAST:event_tableCustomerMouseClicked
 
     private void tableCustomerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableCustomerKeyReleased
+        removeErrorValidations(txtCustomerName);
+        removeErrorValidations(txtCustomerPhone);
+        
         int column = tableCustomer.getSelectedColumn();
         int row = tableCustomer.getSelectedRow();
         
         customer = (Customer) tableModel.getValueAt(row, column);
-        
-        
         
         if(customer != null)
             editCustomer(customer);
@@ -390,6 +451,10 @@ public class FrmCustomer extends JInternalFrame {
         btnCustomerSave.grabFocus();
         opened = true;
     }//GEN-LAST:event_formComponentShown
+
+    private void txtCustomerNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNameKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerNameKeyPressed
     
     private boolean validateCustomerNameField() {
         if(border == null)
@@ -416,7 +481,7 @@ public class FrmCustomer extends JInternalFrame {
         if(border == null)
             border = txtCustomerName.getBorder();
         
-        if(txtCustomerPhone.getText().contains("(   )")) {
+        if(txtCustomerPhone.getText().contains("(   )") || txtCustomerPhone.getText().contains("(  )")) {
             txtCustomerPhone.setBackground(Color.PINK);
             txtCustomerPhone.setBorder(BorderFactory.createLineBorder(Color.decode("#FF0000")));
             lblCustomerPhoneError.setVisible(true);
@@ -432,17 +497,18 @@ public class FrmCustomer extends JInternalFrame {
     }
     
     private void addCustomer() {
-        Bootstrap.entityManager.getTransaction().begin();
+        typing = true;
         
-        if(!editing) {
-            typing = true;
+        boolean customerNameFieldValidation = validateCustomerNameField();
+        boolean customerPhoneFieldValidation = validateCustomerPhoneField();
 
-            boolean customerNameFieldValidation = validateCustomerNameField();
-            boolean customerPhoneFieldValidation = validateCustomerPhoneField();
-
-            if((customerNameFieldValidation) && (customerPhoneFieldValidation)) {
+        if((customerNameFieldValidation) && (customerPhoneFieldValidation)) {
+            if(!editing) {
                 try {
+                    Bootstrap.entityManager.getTransaction().begin();
                     Bootstrap.entityManager.persist(customer);
+                    Bootstrap.entityManager.getTransaction().commit();
+                    
                     tableModel.add(customer);
                     Bootstrap.customers.add(customer);
 
@@ -457,35 +523,35 @@ public class FrmCustomer extends JInternalFrame {
 
                     clearFields();
                     txtCustomerName.grabFocus();
-                    Bootstrap.entityManager.getTransaction().commit();
                 } catch(Exception error) {
                     Bootstrap.entityManager.getTransaction().rollback();
                     //TO-DO
                 }
-            }
-        } else {
-            try {
-                customerFacade.merge(customer);
-                Bootstrap.entityManager.getTransaction().commit();
-                
-                Bootstrap.customers.add(customer);
-                tableModel.fireTableDataChanged();
-                editing = false;
+            } else {
+                try {
+                    Bootstrap.entityManager.getTransaction().begin();
+                    customerFacade.merge(customer);
+                    Bootstrap.entityManager.getTransaction().commit();
+                    
+                    Bootstrap.customers.add(customer);
+                    tableModel.fireTableDataChanged();
+                    editing = false;
 
-                this.customer = new Customer();
-                this.customer.setName("");
+                    this.customer = new Customer();
+                    this.customer.setName("");
 
-                Address address = new Address();
-                Contact contact = new Contact();
+                    Address address = new Address();
+                    Contact contact = new Contact();
 
-                this.customer.setAddress(address);
-                this.customer.setContact(contact);
+                    this.customer.setAddress(address);
+                    this.customer.setContact(contact);
 
-                clearFields();
-                txtCustomerName.grabFocus();
-            } catch(Exception error) {
-                Bootstrap.entityManager.getTransaction().rollback();
-                //TO-DO
+                    clearFields();
+                    txtCustomerName.grabFocus();
+                } catch(Exception error) {
+                    Bootstrap.entityManager.getTransaction().rollback();
+                    //TO-DO
+                }
             }
         }
     }
@@ -517,6 +583,13 @@ public class FrmCustomer extends JInternalFrame {
         
         btnCustomerDelete.setEnabled(true);
         editing = true;
+    }
+    
+    private void removeErrorValidations(JTextField textfield) {
+        textfield.setBackground(Color.WHITE);
+        textfield.setBorder(txtCustomerMail.getBorder());
+        lblCustomerNameError.setVisible(false);
+        lblCustomerPhoneError.setVisible(false);
     }
     
     private void removeCustomer(Customer customer) {

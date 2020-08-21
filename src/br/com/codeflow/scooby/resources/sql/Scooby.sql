@@ -47,6 +47,8 @@ CREATE TABLE
         CONSTRAINT FK_ID_CONTACT FOREIGN KEY(id_contact) REFERENCES contact(id)
         ON  UPDATE CASCADE
     )ENGINE=InnoDB;
+
+CREATE UNIQUE INDEX IDX_NAME ON customer(name);
     
 DROP TABLE customer;
 

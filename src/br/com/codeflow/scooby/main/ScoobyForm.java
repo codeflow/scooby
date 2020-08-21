@@ -2,6 +2,7 @@
 package br.com.codeflow.scooby.main;
 
 import br.com.codeflow.scooby.form.FrmCustomer;
+import br.com.codeflow.scooby.form.FrmNotifications;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -14,10 +15,14 @@ import javax.swing.JInternalFrame;
  */
 public class ScoobyForm extends javax.swing.JFrame {
     
+    private FrmNotifications notificationForm;
     private FrmCustomer customerForm;
 
     public ScoobyForm() {
         initComponents();
+        
+        
+        showNotifications();
     }
 
     @SuppressWarnings("unchecked")
@@ -87,7 +92,7 @@ public class ScoobyForm extends javax.swing.JFrame {
         tollbar.add(jToggleButton1);
 
         desktopPane.add(tollbar);
-        tollbar.setBounds(0, 0, 650, 30);
+        tollbar.setBounds(0, 0, 640, 30);
 
         separator.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -199,6 +204,41 @@ public class ScoobyForm extends javax.swing.JFrame {
             
             frame.setLocation(width, height);
         }
+    }
+    
+    private void showNotifications() {
+        
+        notificationForm = new FrmNotifications();
+        
+        desktopPane.add(notificationForm);
+        notificationForm.setVisible(true);
+        
+        Dimension dimension = desktopPane.get   
+        System.out.println(dimension.width);
+        System.out.println(notificationForm.getSize().width);
+            
+        int width = (dimension.width - notificationForm.getSize().width);
+        int height = (dimension.height - notificationForm.getSize().height);
+            
+        notificationForm.setLocation(width, height);
+        
+            /*
+        if(notificationForm.isVisible()) {
+            notificationForm.toFront();
+            notificationForm.requestFocus();
+        } else {
+
+            
+            desktopPane.add(notificationForm);
+            notificationForm.setVisible(true);
+            
+            //Dimension dimension = notificationForm.getDesktopPane().getSize();
+            
+            //int width = (dimension.width - notificationForm.getSize().width) -20;
+            //int height = (dimension.height - notificationForm.getSize().height) -20;
+            
+            //notificationForm.setLocation(width, height);
+        }*/
     }
     
     // <editor-fold defaultstate="collapsed" desc="Variables">
